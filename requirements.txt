@@ -4,3 +4,4 @@ openai
 tiktoken
 deeplake
 python-dotenv
+streamlit
