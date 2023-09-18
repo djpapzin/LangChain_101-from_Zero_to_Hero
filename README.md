@@ -2,6 +2,10 @@
 
 This repository contains various projects demonstrating the integration and usage of the LangChain framework with OpenAI and ActiveLoop.
 
+You can access the deployed version [here](https://langchain101-fromzerotohero-fpgypzev42wbq7ivey6y2a.streamlit.app/).
+
+![Screenshot of the App](screenshot.jpeg)
+
 ## Setup
 
 1. **Environment Variables**: Rename the `.env copy` file to `.env`.
@@ -22,6 +26,7 @@ This repository contains various projects demonstrating the integration and usag
 │   .env copy
 │   README.md
 │   requirements.txt
+│   screenshot.jpeg
 │   
 └───projects
     │   agents.py
@@ -51,22 +56,22 @@ This repository contains various projects demonstrating the integration and usag
 
 ## Running the Projects
 
-To run any of the scripts, use the following command:
+To run any of the scripts inside the `projects` folder, use:
 
 ```
-python <script_name>.py
+python projects/<script_name>.py
 ```
 
 For example, to run the `tools.py` script, use:
 
 ```
-python tools.py
+python projects/tools.py
 ```
 
 To run the Streamlit app:
 
 ```
-streamlit run app.py
+streamlit run projects/app.py
 ```
 
 ## Notes
