@@ -2,7 +2,9 @@ import streamlit as st
 
 def main():
     st.title("LangChain 101 Projects")
-    
+    st.markdown("*Welcome to the Langchain 101 Projects app! Here, we showcase basic projects that demonstrate the integration of the LangChain framework with OpenAI and ActiveLoop. Dive in to explore AI-driven text summarization, interactive conversations, personalized recommendations, and more!*")
+
+    st.markdown("---")
 
     # Create a dropdown menu for project selection
     project = st.selectbox(
