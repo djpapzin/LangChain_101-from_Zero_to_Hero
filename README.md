@@ -13,6 +13,7 @@ You can access the deployed version [here](https://langchain101-fromzerotohero-f
 2. **API Keys**:
    - Obtain your OpenAI API key from [OpenAI Platform](https://platform.openai.com/account/api-keys) and input it into the `.env` file.
    - Obtain your ActiveLoop API key from [ActiveLoop](https://app.activeloop.ai/register) and input it into the `.env` file.
+   - Obtain your Google Search API key from [Google Search](https://python.langchain.com/docs/integrations/tools/google_search) and input it in the `.env` file
 
 3. **Requirements**: Install the necessary packages using:
    ```
