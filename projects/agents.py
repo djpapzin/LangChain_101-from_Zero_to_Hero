@@ -4,15 +4,22 @@ from langchain.agents import initialize_agent
 from langchain.agents import Tool
 from langchain.utilities import GoogleSearchAPIWrapper
 import os
-from dotenv import load_dotenv
+import streamlit as st
 
 def run_agents(user_query=None):
-    # Load environment variables
-    load_dotenv()
-    
-    OPENAI_API_KEY = os.environ["OPENAI_API_KEY"]
-    GOOGLE_API_KEY = os.environ["GOOGLE_API_KEY"]
-    GOOGLE_CSE_ID = os.environ["GOOGLE_CSE_ID"]
+    # Check if running on Streamlit Cloud
+    if hasattr(st, 'secrets'):
+        OPENAI_API_KEY = st.secrets["OPENAI_API_KEY"]
+        GOOGLE_API_KEY = st.secrets["GOOGLE_API_KEY"]
+        GOOGLE_CSE_ID = st.secrets["GOOGLE_CSE_ID"]
+    else:
+        # For local execution, use the .env file
+        from dotenv import load_dotenv
+        load_dotenv()
+        
+        OPENAI_API_KEY = os.environ["OPENAI_API_KEY"]
+        GOOGLE_API_KEY = os.environ["GOOGLE_API_KEY"]
+        GOOGLE_CSE_ID = os.environ["GOOGLE_CSE_ID"]
 
     # Initialize the LLM and set the temperature to 0 for the precise answer. 
     llm = OpenAIChat(model="gpt-3.5-turbo", temperature=0)
