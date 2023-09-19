@@ -5,15 +5,23 @@ from langchain.utilities import GoogleSearchAPIWrapper
 from langchain.prompts import PromptTemplate
 from langchain.chains import LLMChain
 from langchain.agents import initialize_agent, AgentType
+import streamlit as st
 import os
 from dotenv import load_dotenv
 
-# Load environment variables from .env file
-load_dotenv()
-
-# Retrieve Google API key and Custom Search Engine ID from environment variables
-GOOGLE_API_KEY = os.environ["GOOGLE_API_KEY"]
-GOOGLE_CSE_ID = os.environ["GOOGLE_CSE_ID"]
+# Check if running on Streamlit Cloud
+if hasattr(st, 'secrets'):
+    OPENAI_API_KEY = st.secrets["OPENAI_API_KEY"]
+    GOOGLE_API_KEY = st.secrets["GOOGLE_API_KEY"]
+    GOOGLE_CSE_ID = st.secrets["GOOGLE_CSE_ID"]
+else:
+    # For local execution, use the .env file
+    from dotenv import load_dotenv
+    load_dotenv()
+    
+    OPENAI_API_KEY = os.environ["OPENAI_API_KEY"]
+    GOOGLE_API_KEY = os.environ["GOOGLE_API_KEY"]
+    GOOGLE_CSE_ID = os.environ["GOOGLE_CSE_ID"]
 
 # Initialize the OpenAI model with the specified parameters
 llm = OpenAIChat(model="gpt-3.5-turbo", temperature=0)
